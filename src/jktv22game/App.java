@@ -1,18 +1,1 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package jktv22game;
-
-/**
- *
- * @author pupil
- */
-public class App {
-
-    void run() {
-        
-    }
-    
-}
+package jktv22game;import java.util.Random;import java.util.Scanner;public class App {final Random random;final Scanner scanner;int coins;public App() {this.random = new Random();this.scanner = new Scanner(System.in);this.coins = 0;}public void run(){System.out.println("----- Игра -----");Scanner scanner = new Scanner(System.in);Random random = new Random();int minNumber = 0;int maxNumber = 9;String quit;do {int secretNumber = random.nextInt(maxNumber - minNumber + 1) + minNumber;int attempts = 3;System.out.println("Добро пожаловать в игру 'Угадай число'!");System.out.println("У вас есть " + attempts + " попытки(-ок), чтобы угадать число от 0 до 9.");for (int attempt = 1; attempt <= attempts; attempt++) {System.out.print("Попытка " + attempt + ": Введите вашу догадку: ");int userGuess = scanner.nextInt();if (userGuess == secretNumber) {coins++;System.out.println("Поздравляем! Вы угадали число " + secretNumber + "! Ваше число коинов: " + coins);break;} else {if (attempt < attempts) {System.out.println("Неправильно. Попробуйте еще раз."); } else { coins--; System.out.println("Игра окончена. Вы не угадали число. Загаданное число было: " + "Ваше число коинов: " + coins);}}} System.out.print("Если хотите закончить, введите 'q'. Введите любой другой символ, чтобы продолжить: "); quit = scanner.next();} while (!quit.equalsIgnoreCase("q")); System.out.println("Спасибо за игру. До свидания!"); scanner.close();}}
